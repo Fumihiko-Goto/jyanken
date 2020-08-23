@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>おみくじ</title>
+</head>
+<body>
+
+<header>
+    <h1>おみくじ</h1>
+</header>
+
+<main>
+    <ul>
+        <li id="pull">おみくじを引く</li>
+    </ul>
+    <p id="echo"></p>
+
+</main>
+
+<footer>フッター</footer>
+<script>
+//クリックイベント
+$("#pull").on("click",function(){
+
+    //乱数を生成する
+    const num = Math.ceil( Math.random() * 5 );
+
+    //if文を5個用意（大吉〜凶までの種類）して各パターンを表示させる
+    if(num == 1){
+        // $("#echo").html('大吉');   
+        // $("#echo").css("color","red");
+        $("#echo").html('<img src="daikiti.jpg">');
+    }
+    if(num == 2){
+        $("#echo").html("中吉");
+        $("#echo").css("color","yellow");
+    }
+    if(num == 3){
+        $("#echo").html("小吉");
+        $("#echo").css("color","blue");
+    }
+    if(num == 4){
+        $("#echo").html("吉");
+        $("#echo").css("color","black");
+    }
+    if(num == 5){
+        $("#echo").html("凶");
+        $("#echo").css("color","gray");
+    }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>3択じゃんけん</title>
+</head>
+<body>
+
+<header>
+  <h1>後出しじゃんけん</h1>
+</header>
+
+<main>
+  <ul id="game_start">
+    <li id="gu_btn">グー</li>
+    <li id="cho_btn">チョキ</li>
+    <li id="par_btn">パー</li>
+  </ul>
+  <div class="con">コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+  <div id="judgment">勝ち</div>
+</main>
+
+<footer></footer>
+<script>   
+//じゃんけんを画像に変える
+$("#gu_btn").html('<img src="gu.jpg">');
+$("#cho_btn").html('<img src="choki.jpg">');
+$("#par_btn").html('<img src="pa.jpg">');
+
+
+//グーのとき
+$("#gu_btn").on("click",function(){
+    const num = Math.ceil( Math.random() * 3 );
+    if(num == 1){
+        $(".con").html('コンピュータ：グー');
+        $("#pc_hands").html('<img src="gu.jpg">');   
+        $("#judgment").html('おあいこ〜'); 
+    }
+    if(num == 2){
+        $(".con").html('コンピュータ：チョキ');
+        $("#pc_hands").html("チョキ");
+        $("#judgment").html('あなたの勝ち！やったね◎'); 
+    }
+    if(num == 3){
+        $(".con").html('コンピュータ：パー');
+        $("#pc_hands").html("パー");
+        $("#judgment").html('あなたの負け！残念！'); 
+    }
+  });
+
+
+  //チョキのとき
+  $("#cho_btn").on("click",function(){
+    const num = Math.ceil( Math.random() * 3 );
+    if(num == 1){
+        $(".con").html('コンピュータ：グー');
+        $("#pc_hands").html('グー');   
+        $("#judgment").html('あなたの負け！修行が足り〜ん'); 
+    }
+    if(num == 2){
+        $(".con").html('コンピュータ：チョキ');
+        $("#pc_hands").html("チョキ");
+        $("#judgment").html('おあいこ〜'); 
+    }
+    if(num == 3){
+        $(".con").html('コンピュータ：パー');
+        $("#pc_hands").html("パー");
+        $("#judgment").html('あなたの勝ち！やったね◎'); 
+    }
+  });
+
+
+//パーのとき
+  $("#par_btn").on("click",function(){
+    const num = Math.ceil( Math.random() * 3 );
+    if(num == 1){
+        $(".con").html('コンピュータ：グー');
+        $("#pc_hands").html('グー');   
+        $("#judgment").html('あなたの勝ち！やったね◎'); 
+    }
+    if(num == 2){
+        $(".con").html('コンピュータ：チョキ');
+        $("#pc_hands").html("チョキ");
+        $("#judgment").html('あなたの負け！修行が足り〜ん'); 
+    }
+    if(num == 3){
+        $(".con").html('コンピュータ：パー');
+        $("#pc_hands").html("パー");
+        $("#judgment").html('おあいこ〜'); 
+    }
+  });
+    
+    
+    
+    
+    
+    
+    
+
+</script>
+</body>
+</html>
